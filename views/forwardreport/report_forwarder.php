@@ -10,9 +10,23 @@
 			{
 				$user = ORM::factory("user")->where("id", $h->user_id)->find();
 				$view = view::factory("forwardreport/forwardreport_history");
-				$view->user = $user->name;
+				if($user->loaded)
+				{
+					$view->user = $user->name;
+				}
+				else
+				{
+					$view->user = "";
+				}
 				$view->date = $h->date;
-				$view->instance_name = $forward_to[$h->forwardreports_id];
+				if(isset($forward_to[$h->forwardreports_id]))
+				{
+					$view->instance_name = $forward_to[$h->forwardreports_id];
+				}
+				else
+				{
+					$view->instance_name = "another instance";
+				}
 				$view->render(TRUE);
 			}
 		?>

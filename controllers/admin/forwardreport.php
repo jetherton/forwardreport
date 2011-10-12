@@ -60,7 +60,14 @@ class Forwardreport_Controller extends Admin_Controller
 			$reportParams = UshApiLib_Report_Task_Parameter::fromORM($report);
 			$reportParams->setIncident_description($report->incident_description . "\n- - - \n". $cat_str);
 			
-			$reportParams->setIncident_category("1");
+			//This is a bit of a hack that I don't really like, but Ushahidi requires
+			//every report have at least one category, and since we don't really know
+			//the IDs of the categories on the targer instance(I don't have the time to
+			//use API to query the other site, figure out what categories they have, and then
+			//ask the user what category it should default to. I've got more important things to do
+			//right now), so we're just going to use the "trusted report" category since that's the most generic.
+			//I know it's a hack, my apologies. 
+			$reportParams->setIncident_category("4");
 			
 			
 			$reportTask = new UshApiLib_Report_Task($reportParams, $UshApiLib_Site_Info);
