@@ -3,14 +3,14 @@ Forward Report - Ushahidi Plugin
 
 About
 ---------
-name: Forward Report
-website: https://github.com/jetherton/forwardreport
-description: Gives users the ability to forward a report from their system to another Ushahidi site using the API and the Ushahidi API Library plugin
-version: 1.0
-requires: 2.0
-tested up to: 2.1
-author: John Etherton
-author website: http://johnetherton.com
+* name: Forward Report
+* website: https://github.com/jetherton/forwardreport
+* description: Gives users the ability to forward a report from their system to another Ushahidi site using the API and the Ushahidi API Library plugin
+* version: 1.0
+* requires: 2.0
+* tested up to: 2.1
+* author: John Etherton
+* author website: http://johnetherton.com
 
 Description
 -----------------
