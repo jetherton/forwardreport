@@ -11,5 +11,6 @@
 		'actions'=>'Actions',
 		'edit'=>'Edit',
 		'error_forwarding'=>'Error forwarding report. Please try again',
+		'reported_to'=>'Reported to: ',
 	);
 ?>

@@ -56,9 +56,9 @@ class Forwardreport_Controller extends Admin_Controller
 			event::run('forward_report_action.set_group_name', $simplegroup_name);
 			
 			$UshApiLib_Site_Info = new UshApiLib_Site_Info($instance_url ."api");
-			
 			$reportParams = UshApiLib_Report_Task_Parameter::fromORM($report);
 			$reportParams->setIncident_description($report->incident_description . "\n- - - \n". $cat_str);
+			$reportParams->setIncident_title($report->incident_title . ' ('. Kohana::lang('forwardreport.reported_to'). ' '. Kohana::config('settings.site_name'). ')' );
 			
 			//This is a bit of a hack that I don't really like, but Ushahidi requires
 			//every report have at least one category, and since we don't really know
@@ -78,6 +78,11 @@ class Forwardreport_Controller extends Admin_Controller
 			//echo "<br/><br/>Json: " . $reportTask->getJson();
 			if($response->getError_code() != "0")
 			{
+				
+				echo "error code: " . $response->getError_code();
+				echo "<br/><br/> error message: " . $response->getError_message();
+				echo "<br/><br/>Json: " . $reportTask->getJson();
+				
 				echo "ERROR";
 				return;
 			}
