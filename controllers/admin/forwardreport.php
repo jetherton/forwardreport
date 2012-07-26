@@ -79,9 +79,6 @@ class Forwardreport_Controller extends Admin_Controller
 			if($response->getError_code() != "0")
 			{
 				
-				echo "error code: " . $response->getError_code();
-				echo "<br/><br/> error message: " . $response->getError_message();
-				echo "<br/><br/>Json: " . $reportTask->getJson();
 				
 				echo "ERROR";
 				return;
