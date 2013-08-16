@@ -52,6 +52,7 @@ class Forwardreport_Controller extends Admin_Controller
 			
 			$instance = new Forwardreport_Model($instance_id);
 			$instance_url = $instance->url;
+                        if (substr("$instance_url", -1) != "/") $instance_url .= "/";
 			$simplegroup_name = $instance->simplegroup_name;
 			event::run('forward_report_action.set_group_name', $simplegroup_name);
 			
